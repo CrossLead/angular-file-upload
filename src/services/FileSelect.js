@@ -10,8 +10,8 @@ let {
 
 
 export default function __identity($compile, FileDirective) {
-    
-    
+
+
     return class FileSelect extends FileDirective {
         /**
          * Creates instance of {FileSelect} object
@@ -28,9 +28,9 @@ export default function __identity($compile, FileDirective) {
                 // Name of property inside uploader._directive object
                 prop: 'select'
             });
-            
+
             super(extendedOptions);
-            
+
             if(!this.uploader.isHTML5) {
                 this.element.removeAttr('multiple');
             }
@@ -67,7 +67,6 @@ export default function __identity($compile, FileDirective) {
             this.uploader.addToQueue(files, options, filters);
             if(this.isEmptyAfterSelection()) {
                 this.element.prop('value', null);
-                this.element.replaceWith($compile(this.element.clone())(this.scope)); // IE fix
             }
         }
     }
